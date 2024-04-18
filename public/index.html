@@ -15,6 +15,13 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./static/images/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./static/images/icons/favicon-16x16.png" sizes="16x16" />
+    <title>{{ pagetitle }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./static/css/arxivstyle.css">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,10 +32,50 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+
   </head>
+  <header>
+    <!-- contains Cornell logo and sponsor statement -->
+    <div class="attribution level is-marginless">
+      <div class="level-left"><a class="level-item" href="https://library.cornell.edu"><img class="logo" src="../../static/images/CUL-reduced-white-SMALL.svg" alt="Cornell University Library" /></a></div>
+      <div class="level-right"><p class="sponsors level-item">We gratefully acknowledge support from<br /> the Simons Foundation and member institutions</p></div>
+    </div>
+    <!-- contains arXiv identity and search bar for now -->
+    <div class="identity level is-marginless">
+      <div class="level-left"><h1 class="level-item"><a href="https://arxiv.org">arXiv.org</a></h1></div>
+      <div class="search-block level-right">
+        <form class="level-item">
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input is-small" type="text" name="query" placeholder="Search..." />
+              <p class="help"><a href="">Help</a> | <a href="">Advanced Search</a></p>
+            </div>
+            <div class="control">
+              <div class="select is-small">
+                <select name="searchtype">
+                  <option selected="selected">All fields</option>
+                  <option>Title</option>
+                  <option>Author</option>
+                  <option>arXiv ID</option>
+                </select>
+              </div>
+            </div>
+            <button class="button is-small is-warning">Search</button>
+          </div>
+        </form>
+      </div>
+    </div> <!-- closes identity -->
+    <div class="user-tools box is-pulled-right"><a href="">Login</a> | <a href="">My Account</a> | <a href="">Logout</a></div>
+  </header>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <section class="section">
+      <div class="container">
+        <div class="content">
+          <div id="root"></div>
+        </div>
+      </div>
+    </section>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -40,4 +87,26 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <footer>
+    <div class="columns">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://arxiv.org/help/contact">Contact</a></li>
+          <li><a href="https://twitter.com/arxiv">Find us on Twitter</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://blogs.cornell.edu/arxiv/">Blog - the latest news</a></li>
+          <li><a href="https://confluence.cornell.edu/display/arxivpub/arXiv+Public+Wiki">Wiki - project documentation</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="mailto:web-accessibility@cornell.edu">Web Accessibility Help</a></li>
+          <li><a href="https://arxiv.org/help">Help with using arXiv</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </html>

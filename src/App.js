@@ -59,29 +59,34 @@ function App() {
     };
 
     return (
-        <div>
-            <h1>Institution Reports</h1>
-            <div style={buttonContainerStyle}>
-                {institutionList.map((inst, index) => (
-                    <button key={index}
-                            onClick={() => handleButtonClick(inst.institution_file_id, inst.institution_info)}>
-                        {inst.insitution_name}
-                    </button>
-                ))}
-            </div>
-            <p>{detail}</p>
-            <div>
-                <h1>Submission Report</h1>
-                {loadingerror ? (
-                    <p>Error loading the plot: {loadingerror}</p>
-                ) : (
-                    plotData ? <BokehPlot data={plotData}/> : <p>Loading...</p>
+        <React.Fragment>
+            <html>
+            <div style={{height: '200px'}}>
+                <h1>Institution Reports</h1>
+                <div style={buttonContainerStyle}>
+                    {institutionList.map((inst, index) => (
+                        <button key={index}
+                                onClick={() => handleButtonClick(inst.institution_file_id, inst.institution_info)}>
+                            {inst.insitution_name}
+                        </button>
+                    ))}
+                </div>
+                <p>{detail}</p>
+                <div>
+                    <h1>Submission Report</h1>
+                    {loadingerror ? (
+                        <p>Error loading the plot: {loadingerror}</p>
+                    ) : (
+                        plotData ? <BokehPlot data={plotData}/> : <p>Loading...</p>
 
-                )}
-            </div>
+                    )}
+                </div>
 
-        </div>
-    );
+            </div>
+            </html>
+        </React.Fragment>
+    )
+        ;
 }
 
 export default App;
