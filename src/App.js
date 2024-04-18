@@ -60,7 +60,7 @@ function App() {
 
     return (
         <React.Fragment>
-            <div style={{height: '200px'}}>
+            <div >
                 <h1>Institution Reports</h1>
                 <div style={buttonContainerStyle}>
                     {institutionList.map((inst, index) => (
