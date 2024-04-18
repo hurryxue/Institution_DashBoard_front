@@ -60,7 +60,6 @@ function App() {
 
     return (
         <React.Fragment>
-            <html>
             <div style={{height: '200px'}}>
                 <h1>Institution Reports</h1>
                 <div style={buttonContainerStyle}>
@@ -81,9 +80,7 @@ function App() {
 
                     )}
                 </div>
-
             </div>
-            </html>
         </React.Fragment>
     )
         ;
