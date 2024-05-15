@@ -5,20 +5,8 @@
 import React, {useEffect} from 'react';
 // import * as Bokeh from '@bokeh/bokehjs';
 
-const BokehPlot = ({data}) => {
-    // useEffect(() => {
-    //     const script = document.createElement('script');
-    //     script.type = 'text/javascript';
-    //     script.async = true;
-    //     script.textContent = `
-    //   Bokeh.embed.embed_item(${data}, 'myplot');
-    // `;
-    //     document.body.appendChild(script);
-    //
-    //     return () => {
-    //         document.body.removeChild(script);
-    //     };
-    // }, [data]);
+const BokehPlot = ({data, title, plotId}) => {
+
     useEffect(() => {
         if (data) {
             try {
@@ -30,11 +18,15 @@ const BokehPlot = ({data}) => {
             }
         }
     }, [data]);
+    if (data==null){
+        return <></>
+    }
 
 
     // return <div><p>{JSON.stringify(data, null, 2)}</p></div>;
-    return <div><p>this is a test</p>
-        <div id='member_dashboard'></div>
+    return <div style={{marginTop:10}}>
+        <h3>{title}</h3>
+        <div id={plotId}></div>
     </div>
 };
 
