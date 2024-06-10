@@ -21,6 +21,8 @@ import Card from "@mui/material/Card";
 
 function Selection() {
 
+    console.log("hello selection")
+
     const [detail, setDetail] = useState('');
     const [institutionList, setInstitutionList] = useState([]);
     const [plotData, setPlotData] = useState(null);
@@ -30,8 +32,6 @@ function Selection() {
     const location = useLocation();
     const [hasAccess, setHasList] = useState(true);
     const apiUrl = process.env.REACT_APP_DEV_URL;
-    return "Hello World"
-
 
 
 
