@@ -12,6 +12,8 @@ function Report({file}){
     const [StandardConsortChart,setStandardConsortChart] = useState(null)
     const location = useLocation()
     let fid = file ? file : location.state;
+    const apiUrl = process.env.REACT_APP_DEV_URL;
+
 
     console.log(fid)
     useEffect(()=>{
@@ -20,7 +22,7 @@ function Report({file}){
             setPlotData(null)
             try {
                 console.log('fetching')
-                const response = await fetch(`http://127.0.0.1:8000/retrive/${fid}`)
+                const response = await fetch(`${apiUrl}/retrive/${fid}`)
                 const data = await response.json();
                 setPlotData(data.chart)
                 data.forEach(item => {

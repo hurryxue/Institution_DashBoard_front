@@ -2,6 +2,7 @@
   "name": "institution_dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@bokeh/bokehjs": "^3.4.1",
     "@emotion/react": "^11.0.0",
