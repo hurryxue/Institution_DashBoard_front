@@ -31,17 +31,18 @@ function Selection() {
     const navigate = useNavigate();
     const location = useLocation();
     const [hasAccess, setHasList] = useState(true);
-    const apiUrl = process.env.REACT_APP_DEV_URL;
+    //const  apiUrl  = process.env.REACT_APP_API_DEV_URL;
+    const apiUrl = process.env.REACT_APP_API_Local_URL
 
 
 
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true)
-            console.log(document.cookie);
+            console.log(`${apiUrl}/getinstitutions`)
 
             try {
-                const response = await fetch('http://localhost:8000/getinstitutions', {
+                const response = await fetch(`${apiUrl}/getinstitutions`, {
                     method: 'GET',
                     credentials: 'include'  // cookie
                 });
@@ -54,7 +55,7 @@ function Selection() {
                     setHasList(false)
                 }else{
                     const fetchPromises = idList.map(id =>
-                        fetch(`http://localhost:8000/report/${id}`, {
+                        fetch(`${apiUrl}/report/${id}`, {
                             credentials: 'include',  // 允许携带cookie
                         }).then(response => response.json())
                     );

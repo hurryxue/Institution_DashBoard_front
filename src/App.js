@@ -4,12 +4,11 @@ import Selection from './Selection';
 import Report from "./reportCharts";
 
 function App() {
-    console.log("hello")
     return (
         <Router>
             <Routes>
                 <Route path="membershipreports/selection" element={<Selection />} />
-                <Route path="report" element={<Report/>} />
+                <Route path="membershipreports/report" element={<Report/>} />
             </Routes>
         </Router>
     );
