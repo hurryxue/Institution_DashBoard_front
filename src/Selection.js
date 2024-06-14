@@ -32,7 +32,17 @@ function Selection() {
     const location = useLocation();
     const [hasAccess, setHasList] = useState(true);
     //const  apiUrl  = process.env.REACT_APP_API_DEV_URL;
-    const apiUrl = process.env.REACT_APP_API_Local_URL
+    let apiUrl
+    const environment = process.env.REACT_APP_ENV
+    switch (environment) {
+        case 'LOCAL':
+            apiUrl = process.env.REACT_APP_API_Local_URL;
+            break;
+        case 'DEV':
+            apiUrl = process.env.REACT_APP_API_DEV_URL;
+            break;
+    }
+
 
 
 
