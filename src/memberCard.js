@@ -15,10 +15,10 @@ import {CardActionArea} from "@mui/material";
 
 function MediaCard({institution}) {
     const navigate = useNavigate();
-    const handleClick = (event, fileID,institutionName) => {
+    const handleClick = (event, institutionID,institutionName) => {
         console.log('Button clicked with event:', event);
-        console.log('Extra parameter:', fileID);
-        navigate('/membershipreports/report', { state: {fileID, institutionName} });
+        console.log('sid:', institutionID,institutionName);
+        navigate('/membershipreports/report', { state: {institutionID, institutionName} });
     }
     return (
         <Card sx={{ height: 200, borderRadius: '10px' }}>
@@ -35,7 +35,7 @@ function MediaCard({institution}) {
             {/*        // border: '1px solid #ccc'*/}
             {/*    }}*/}
             {/*/>*/}
-            <CardActionArea onClick={(event) => handleClick(event, institution.institution_file_id, institution.insitution_name)} sx={{ height: '100%' }} >
+            <CardActionArea onClick={(event) => handleClick(event, institution.institution_id, institution.insitution_name)} sx={{ height: '100%' }} >
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {institution.insitution_name}

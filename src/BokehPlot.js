@@ -6,7 +6,7 @@ import React, {useEffect} from 'react';
 // import * as Bokeh from '@bokeh/bokehjs';
 
 const BokehPlot = ({data, title, plotId}) => {
-
+    console.log(data)
     useEffect(() => {
         if (data) {
             try {

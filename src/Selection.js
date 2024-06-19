@@ -119,9 +119,9 @@ function Selection() {
 
 
     if (institutionList.length === 1) {
-        const fileID = institutionList[0].institution_file_id
+        const instID = institutionList[0].institution_id
         const institution = institutionList[0]
-        navigate(location.pathname, { replace: true, state: { fid: fileID } });
+        navigate(location.pathname, { replace: true, state: { fid: instID } });
         return(
             <React.Fragment>
                 <h1>Institution Reports</h1>
@@ -172,7 +172,7 @@ function Selection() {
                     </Card>
                 </div>
                 <div>
-                    <Report file={fileID}/>
+                    <Report id={instID} name={institution.institution_name}/>
                 </div>
             </React.Fragment>
         )
