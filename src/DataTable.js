@@ -10,10 +10,11 @@ const HtmlContent = ({ htmlString }) => {
     );
 };
 
-const DataTable = () => {
+const DataTable = (rawData) => {
+
     useEffect(() => {
         $(document).ready(function() {
-            $('#report').DataTable({
+            $('#'+rawData.target_id).DataTable({
                 paging: true,
                 searching: true,
                 ordering: true,
@@ -23,40 +24,15 @@ const DataTable = () => {
                 pageLength: 25
             });
         });
-    }, []);
+    }, [rawData]);
 
-    const content= "<table id=\"report\" className=\"display\" style=\" width: 100%; \">\n" +
-        "            <thead>\n" +
-        "            <tr>\n" +
-        "                <th>Name</th>\n" +
-        "                <th>Position</th>\n" +
-        "                <th>Office</th>\n" +
-        "                <th>Age</th>\n" +
-        "                <th>Start date</th>\n" +
-        "                <th>Salary</th>\n" +
-        "            </tr>\n" +
-        "            </thead>\n" +
-        "            <tbody>\n" +
-        "            <tr>\n" +
-        "                <td>Tiger Nixon</td>\n" +
-        "                <td>System Architect</td>\n" +
-        "                <td>Edinburgh</td>\n" +
-        "                <td>61</td>\n" +
-        "                <td>2011/04/25</td>\n" +
-        "                <td>$320,800</td>\n" +
-        "            </tr>\n" +
-        "            <tr>\n" +
-        "                <td>Garrett Winters</td>\n" +
-        "                <td>Accountant</td>\n" +
-        "                <td>Tokyo</td>\n" +
-        "                <td>63</td>\n" +
-        "                <td>2011/07/25</td>\n" +
-        "                <td>$170,750</td>\n" +
-        "            </tr>\n" +
-        "            </tbody>\n" +
-        "        </table>"
+    console.log(rawData.data)
     return (
-        <HtmlContent htmlString={content}></HtmlContent>
+        <div>
+            <h3>{rawData.title}</h3>
+            <HtmlContent htmlString={rawData.data}></HtmlContent>
+        </div>
+
     );
 };
 

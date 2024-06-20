@@ -2,6 +2,7 @@ import BokehPlot from "./BokehPlot";
 
 import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
+import DataTable from "./DataTable";
 
 function Report({id,name}){
     const [plotData,setPlotData] = useState(null)
@@ -11,13 +12,14 @@ function Report({id,name}){
     const [StandardSingleChart,setStandardSingleChart] = useState(null)
     const [StandardConsortChart,setStandardConsortChart] = useState(null)
     const [ArchiveBarplot,setArchiveBarplot] = useState(null)
-    const [TableData,setTableData] = useState(null)
     const location = useLocation()
     console.log(location.state)
     const { institutionID, institutionName } = location.state;
     console.log(institutionID, institutionName)
     const sid = institutionID || id;
     const instname = institutionName || name;
+    const [ArchiveTable,setArchiveTable] = useState(null)
+    const [ChampionTable,setChampionTable] = useState(null)
 
 
     //let fid = file ? file : location.state;
@@ -54,7 +56,16 @@ function Report({id,name}){
                 }
 
                 if (tableData !== ""){
-                    tableData.forEach(item => {})
+                    tableData.forEach(item => {
+                        if(item['report-type'] === "archive-year-count-table")
+                        {
+                            setArchiveTable(item.table);
+                        }
+                        else if(item['report-type'] === "champion-article-table")
+                        {
+                            setChampionTable(item.table);
+                        }
+                    })
                 }
 
             }catch (error) {
@@ -82,6 +93,8 @@ function Report({id,name}){
             {/*<BokehPlot data={StandardSingleChart} title={'Member Dashboard'} plotId={'chart3'}/>*/}
             {/*<BokehPlot data={StandardConsortChart} title={'Consortia Single Dashboard'} plotId={'chart4'}/>*/}
             <BokehPlot data={ArchiveBarplot} title={'Archive Barplot'} plotId={'archive-year-count-barplot'}/>
+            <DataTable data={ArchiveTable} title={'Archive Table'} target_id={'archive-year-count-table'}/>
+            <DataTable data={ChampionTable} title={'Champion Article Table'} target_id={'champion-article-table'}/>
 
             Data provided by       Data provided by <img width="44" style={{ verticalAlign: 'middle' }} src="https://arxiv.org/scopus.png" alt="arXiv logo" />
 
